@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  dentistapp:
+    build: .
+    volumes:
+      - ./api:/opt/api
+    ports:
+        - "5000:5000"
+    command: bash -c "python3 /opt/api/analisis_API.py "
+    hostname: dentistapp
+    container_name: dentistapp
+    networks:
+      - network_app
+
+networks:
+  network_app:
